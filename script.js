@@ -1,3 +1,4 @@
+// using prompt and console log
 // let input = prompt(`What would you like to do?`)
 // const todos = [];
 // while (input !== 'quit' && input !== 'q') {
@@ -53,5 +54,5 @@ form.addEventListener('submit', function(e) {
     }
 });
 todoList.addEventListener('dblclick', function(e) {
-    e.target.remove()
+    e.target.nodeName === 'LI' && e.target.remove()
 })
