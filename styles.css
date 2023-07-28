@@ -1,0 +1,17 @@
+li:hover, li:focus, li:active {
+    transform: scale(1.06);;
+}
+li {
+    width: 100%;
+    list-style: none;
+    margin: 0;
+}
+li:nth-child(odd) {
+    background-color: rgb(238, 238, 238);
+}
+li:nth-child(even) {
+    background-color: rgb(253, 178, 178);
+}
+body {
+    background-color: rgb(253, 238, 238);
+}
