@@ -56,3 +56,41 @@ form.addEventListener('submit', function(e) {
 todoList.addEventListener('dblclick', function(e) {
     e.target.nodeName === 'LI' && e.target.remove()
 })
+
+
+
+const newJokes = document.querySelector('#jokes');
+const newJokesButton = document.querySelector('#jokesButton')
+// axios.get("https://swapi.dev/api/people/1/")
+// .then(res => {
+//     console.log(res.data)
+// })
+// .catch(e => {
+//     console.log(e)
+// })
+const getStarWarsPeople = async (sn) => {
+   const resp = await axios.get(`https://swapi.dev/api/people/${sn}/`);
+   console.log(resp.data)
+}
+// getStarWarsPeople(5);
+// for (let i = 1; i < 20; i++) {
+//     getStarWarsPeople(i)
+// }
+
+const addNewJokes = async () => {
+    const jokeText = await getDadJokes();
+    const newLI = document.createElement('li');
+    newLI.innerText = jokeText;
+    newJokes.append(newLI);
+}
+const getDadJokes = async () => {
+    try {
+        const config = { headers: {Accept: 'application/json'}}
+        const res = await axios.get('https://icanhazdadjoke.com/', config);
+        return res.data.joke;
+    } catch (e) {
+        return 'NO JOKES AVAILABLE JOKES, SORRY'
+    }
+    
+}  
+newJokesButton.addEventListener('click', addNewJokes)
